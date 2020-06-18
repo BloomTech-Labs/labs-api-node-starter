@@ -15,7 +15,8 @@
 
     ```bash
     > git clone --depth=1 --branch=master git@github.com:Lambda-School-Labs/labs-api-starter.git NEW-REPO-NAME
-    > rm -rf ./NEW-REPO-NAME/.git```
+    > rm -rf ./NEW-REPO-NAME/.git
+    ```
 
 - run: `npm install` to download all dependencies.
 - run: `npm start` to start your local development server.
