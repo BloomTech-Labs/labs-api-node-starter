@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  pg:
+    image: postgres
+    container_name: pg-api-starter
+    ports:
+      - "5400:5432"
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=api-dev
+    volumes:
+      - ./docker/pg/postgres.conf:/etc/postgresql/postgresql.conf
+      - ./data/pg:/var/lib/postgresql/data
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    restart: always
