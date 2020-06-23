@@ -1,6 +1,8 @@
 const request = require('supertest');
 const express = require("express");
 const server = express();
+var Users = require('../../api/models/userModel');
+jest.mock('../../api/models/userModel');
 
 describe('users router endpoints', () =>{
   beforeAll(() => {
@@ -10,11 +12,12 @@ describe('users router endpoints', () =>{
   });
 
   describe('GET /users', () =>{
-    it('should return json with 2 users', async () =>{
+    it('should call model once', async () =>{
+      Users.get.mockResolvedValue([]);
       const res = await request(server).get("/users");
 
       expect(res.status).toBe(200);
-      // expect(res.body.length).toEqual(2);
+      expect(Users.get.mock.calls.length).toBe(1);
     });
 
   });
