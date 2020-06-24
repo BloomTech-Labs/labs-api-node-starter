@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.use('/apidoc', express.static('apidoc'));
 app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
@@ -21,7 +22,7 @@ app.use(cookieParser());
 
 // application routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(['/user', '/users'], usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

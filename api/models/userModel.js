@@ -1,7 +1,20 @@
 const db = require("../../data/db-config");
 
-module.exports = { get };
 
-function get() {
-  return db("users");
-}
+const findAll = async () => {
+  return await db("users");
+};
+
+const findById = async id => {
+  const user = await db('users')
+    .where({id})
+    .first()
+    .select(
+      'id', 
+      'email',
+      'name'
+    );
+  return user;
+};
+
+module.exports = { findAll, findById };

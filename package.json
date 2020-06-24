@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "knex": "npx knex --knexfile config/knexfile.js",
+    "docs": "rm -rf apidoc && npx apidoc -f \"api/routes/.*\\.js$\" -i ./ -o apidoc/ && npx apidoc-markdown -p apidoc -o DOCUMENTATION.md",
     "test": "npx jest --forceExit"
   },
   "jest": {
@@ -17,7 +18,12 @@
       "!**/coverage/**"
     ]
   },
+  "apidoc": {
+    "title": "Labs API Starter Scaffolding"
+  },
   "dependencies": {
+    "apidoc": "^0.23.0",
+    "apidoc-markdown": "^5.1.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",

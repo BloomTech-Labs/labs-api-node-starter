@@ -6,7 +6,7 @@ const seedUsers = [
   },
   {
     id: "013e4ab9-77e0-48de-9efe-4d96542e791f",
-    name: "Cathy Warmound",
+    name: "Cathy Warmund",
     email: "cathy@example.com",
   }
 ];
