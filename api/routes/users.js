@@ -15,14 +15,14 @@ var router = express.Router();
  *     HTTP/1.1 200 OK
  *     [
  *       {
- *         'id': '013e4ab9-77e0-48de-9efe-4d96542e791f',
- *         'name': 'Frank Martinez',
- *         'email': 'frank@example.com'
+ *         "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
+ *         "name": "Frank Martinez",
+ *         "email": "frank@example.com"
  *       },
  *       {
- *         id: '013e4ab9-77e0-48de-9efe-4d96542e791f',
- *         name: 'Cathy Warmund',
- *         email: 'cathy@example.com'
+ *         "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
+ *         "name": "Cathy Warmund",
+ *         "email": "cathy@example.com"
  *       }
  *     ]
  *

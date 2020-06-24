@@ -1,5 +1,6 @@
 .vscode
 coverage
+apidoc
 
 #docker generated files
 data/pg
