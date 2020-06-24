@@ -7,6 +7,10 @@
 
 - [Labs Engineering Standard requirements found here](https://labs.lambdaschool.com/topics/node-js/)
 
+## API doc
+
+All routes can be viewed in the [DOCUMENTATION.md](DOCUMENTATION.md) file
+
 ## Getting Started
 
 - Install [docker](https://docs.docker.com/get-docker/) for your platform
