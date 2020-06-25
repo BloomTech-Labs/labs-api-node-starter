@@ -2,22 +2,20 @@ module.exports = {
   env: {
     node: true,
     commonjs: true,
-    es2020: true
+    es2020: true,
   },
-  extends: [
-    'eslint:recommended'
-  ],
+  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
   parserOptions: {
-    ecmaVersion: 11
+    ecmaVersion: 11,
   },
-  rules: {
-  },
+  plugins: ['prettier'],
+  rules: {},
   overrides: [
     {
       files: ['__tests__/*', '__tests__/**/*'],
       env: {
-        jest: true
+        jest: true,
       },
     },
   ],
-}
+};
