@@ -1,5 +1,4 @@
 const request = require('supertest');
-const express = require("express");
 // Full app so we can test the 404
 const server = require("../../api/app.js");
 

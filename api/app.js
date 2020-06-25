@@ -1,6 +1,5 @@
 var createError = require('http-errors');
 var express = require('express');
-var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var helmet = require('helmet');
@@ -26,21 +25,29 @@ app.use(['/user', '/users'], usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.status(404).json( {error: "Route '"+req.url+"' Not Found."} );
+  next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  if(req.app.get('env') === 'development') {
-    console.log(err);
+  if(err instanceof createError.HttpError) {
+    res.locals.message = err.message;
+    res.locals.status = err.statusCode;
+    if(process.env.NODE_ENV === 'development') {
+      res.locals.error = err;
+    }
   }
-  
-  // render the error page
-  res.status(err.status || 500);
-  res.json({error: res.locals.error});
+  console.log(err);
+  if(process.env.NODE_ENV === 'production' && !res.locals.message) {
+    res.locals.message = 'ApplicationError';
+    res.locals.status = 500;
+  }
+  if(res.locals.status) {
+    res.status(res.locals.status || 500);
+    const errObject = {error: res.locals.error, message: res.locals.message}
+    return res.json(errObject);
+  }
+  next(err);
 });
 
 module.exports = app;
