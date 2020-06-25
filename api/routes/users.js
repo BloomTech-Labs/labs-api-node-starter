@@ -51,9 +51,9 @@ router.get('/', function(req, res, next) {
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *       'id': '013e4ab9-77e0-48de-9efe-4d96542e791f',
- *       'name': 'Frank Martinez',
- *       'email': 'frank@example.com'
+ *       "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
+ *       "name": "Frank Martinez",
+ *       "email": "frank@example.com"
  *     }
  *
  * @apiError UserNotFound 404 The id of the User was not found.
@@ -62,12 +62,12 @@ router.get('/', function(req, res, next) {
  * @apiErrorExample UserNotFound:
  *     HTTP/1.1 404 Not Found
  *     {
- *       'error': 'UserNotFound'
+ *       "error": "UserNotFound"
  *     }
  * @apiErrorExample Forbidden:
  *     HTTP/1.1 403 Forbidden
  *     {
- *       'error': 'Authorization failed'
+ *       "error": "Authorization failed"
  *     }
  *
  * @apiExample {curl} Example usage:

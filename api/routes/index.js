@@ -1,7 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/**
+ * @api {get} / Root path, ping
+ * @apiName GetRoot
+ * @apiGroup PingAPI
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "api": "up"
+ *     }
+ *
+ * @apiExample {curl} Example usage:
+ *     curl -i http://localhost:3000/
+ */
 router.get('/', function(req, res, next) {
   res.status(200).json({api: "up"});
 });
