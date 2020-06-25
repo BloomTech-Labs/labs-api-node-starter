@@ -5,7 +5,7 @@ services:
     image: postgres
     container_name: pg-api-starter
     ports:
-      - "5400:5432"
+      - '5400:5432'
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=docker

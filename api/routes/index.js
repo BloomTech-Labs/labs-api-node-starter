@@ -15,8 +15,8 @@ var router = express.Router();
  * @apiExample {curl} Example usage:
  *     curl -i http://localhost:3000/
  */
-router.get('/', function(req, res) {
-  res.status(200).json({api: "up"});
+router.get('/', function (req, res) {
+  res.status(200).json({ api: 'up' });
 });
 
 module.exports = router;

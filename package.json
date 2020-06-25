@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint --fix .",
+    "format": "npx prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\"",
     "knex": "npx knex --knexfile config/knexfile.js",
     "docs": "rm -rf apidoc && npx apidoc -f \"api/routes/.*\\.js$\" -i ./ -o apidoc/ && npx apidoc-markdown -p apidoc -o DOCUMENTATION.md",
-    "test": "npx jest --forceExit"
+    "tests": "npx jest --forceExit"
   },
   "jest": {
     "testEnvironment": "node",
@@ -27,13 +30,16 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-jest": "^23.17.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "express": "~4.16.1",
     "helmet": "^3.23.1",
     "http-errors": "~1.6.3",
     "knex": "^0.21.1",
     "morgan": "~1.9.1",
-    "pg": "^8.2.1"
+    "pg": "^8.2.1",
+    "prettier": "^2.0.5"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

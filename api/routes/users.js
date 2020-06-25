@@ -29,11 +29,10 @@ var router = express.Router();
  * @apiExample {curl} Example usage:
  *     curl -i http://localhost:8000/users
  */
-router.get('/', function(req, res) {
-  Users.findAll()
-    .then((users) => {
-      res.status(200).json(users);
-    });
+router.get('/', function (req, res) {
+  Users.findAll().then((users) => {
+    res.status(200).json(users);
+  });
 });
 
 /**
@@ -73,19 +72,19 @@ router.get('/', function(req, res) {
  * @apiExample {curl} Example usage:
  *     curl -i http://localhost:3000/user/013e4ab9-77e0-48de-9efe-4d96542e791f
  */
-router.get('/:id', function(req, res) {
+router.get('/:id', function (req, res) {
   const id = String(req.params.id);
   Users.findById(id)
-    .then(user => {
-      if(user) {
+    .then((user) => {
+      if (user) {
         res.status(200).json(user);
       } else {
         res.status(404).json({ error: 'UserNotFound' });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json({ error: err.message });
-    })
+    });
 });
 
 module.exports = router;

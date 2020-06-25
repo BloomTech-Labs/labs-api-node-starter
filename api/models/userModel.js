@@ -1,18 +1,14 @@
-const db = require("../../data/db-config");
+const db = require('../../data/db-config');
 
 const findAll = async () => {
-  return await db("users");
+  return await db('users');
 };
 
-const findById = async id => {
+const findById = async (id) => {
   const user = await db('users')
-    .where({id})
+    .where({ id })
     .first()
-    .select(
-      'id', 
-      'email',
-      'name'
-    );
+    .select('id', 'email', 'name');
   return user;
 };
 
