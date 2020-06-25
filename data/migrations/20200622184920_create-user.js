@@ -10,6 +10,7 @@ exports.up = function (knex) {
         .defaultTo(knex.raw('uuid_generate_v4()'));
       table.string('email');
       table.string('name');
+      table.string('avatar');
       table.timestamps();
     });
 };

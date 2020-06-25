@@ -1,15 +1,11 @@
-const seedUsers = [
-  {
-    id: 'd376de05-5f1b-4086-93b1-77681ca93614',
-    name: 'Bob Smith',
-    email: 'bob@example.com',
-  },
-  {
-    id: '013e4ab9-77e0-48de-9efe-4d96542e791f',
-    name: 'Cathy Warmund',
-    email: 'cathy@example.com',
-  },
-];
+const faker = require('faker');
+
+const users = [...new Array(20)].map(() => ({
+  id: faker.random.uuid(),
+  avatar: faker.image.avatar(),
+  email: faker.internet.email(),
+  name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+}));
 
 exports.seed = function (knex) {
   // Deletes ALL existing entries
@@ -17,6 +13,6 @@ exports.seed = function (knex) {
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex('users').insert(seedUsers);
+      return knex('users').insert(users);
     });
 };

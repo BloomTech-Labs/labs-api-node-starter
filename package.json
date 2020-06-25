@@ -34,6 +34,7 @@
     "eslint-plugin-jest": "^23.17.1",
     "eslint-plugin-prettier": "^3.1.4",
     "express": "~4.16.1",
+    "faker": "^4.1.0",
     "helmet": "^3.23.1",
     "http-errors": "~1.6.3",
     "knex": "^0.21.1",

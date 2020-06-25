@@ -10,6 +10,7 @@ var router = express.Router();
  * @apiSuccess {UUID} id Unique id of the User.
  * @apiSuccess {String} name Name of the User.
  * @apiSuccess {String} email  Email of the User.
+ * @apiSuccess {String} avatar  Avatar url for the User.
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
@@ -17,12 +18,14 @@ var router = express.Router();
  *       {
  *         "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
  *         "name": "Frank Martinez",
- *         "email": "frank@example.com"
+ *         "email": "frank@example.com",
+ *         "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg"
  *       },
  *       {
  *         "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
  *         "name": "Cathy Warmund",
- *         "email": "cathy@example.com"
+ *         "email": "cathy@example.com",
+ *         "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/geneseleznev/128.jpg"
  *       }
  *     ]
  *
@@ -46,13 +49,15 @@ router.get('/', function (req, res) {
  * @apiSuccess {UUID} id Unique id of the User.
  * @apiSuccess {String} name Name of the User.
  * @apiSuccess {String} email  Email of the User.
+ * @apiSuccess {String} avatar Avatar url for the User.
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *       "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
  *       "name": "Frank Martinez",
- *       "email": "frank@example.com"
+ *       "email": "frank@example.com",
+ *       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg"
  *     }
  *
  * @apiError UserNotFound 404 The id of the User was not found.
