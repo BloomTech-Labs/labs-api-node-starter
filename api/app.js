@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const cors = require("cors");
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var helmet = require('helmet');
@@ -10,12 +11,17 @@ if (config_result.error) {
 }
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var profileRouter = require('./routes/profile');
 
 var app = express();
 
 app.use('/apidoc', express.static('apidoc'));
 app.use(helmet());
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,7 +29,7 @@ app.use(cookieParser());
 
 // application routes
 app.use('/', indexRouter);
-app.use(['/user', '/users'], usersRouter);
+app.use(['/profile', '/profiles'], profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
