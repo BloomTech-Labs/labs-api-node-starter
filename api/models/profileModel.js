@@ -1,4 +1,4 @@
-const db = require('../../data/db-config');
+import db from '../../data/db-config';
 
 const findAll = async () => {
   return await db('profiles');
@@ -12,4 +12,4 @@ const findById = async (id) => {
   return user;
 };
 
-module.exports = { findAll, findById };
+export { findAll, findById };

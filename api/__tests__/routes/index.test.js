@@ -1,6 +1,6 @@
-const request = require('supertest');
+import request from 'supertest';
 // Full app so we can test the 404
-const server = require('../../api/app.js');
+import server from '../../app';
 
 describe('index router endpoints', () => {
   beforeAll(() => {});
@@ -17,7 +17,7 @@ describe('index router endpoints', () => {
       const res = await request(server).get('/ping');
 
       expect(res.status).toBe(404);
-      expect(res.body.error).toMatch(/Route '\/ping' Not Found\./);
+      expect(res.body.message).toMatch(/Route '\/ping' Not Found\./);
     });
   });
 });

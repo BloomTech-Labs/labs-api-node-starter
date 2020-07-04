@@ -1,7 +1,7 @@
-const createError = require('http-errors');
-const OktaJwtVerifier = require('@okta/jwt-verifier');
-const expectedAudience = 'api://default';
+import createError from 'http-errors';
+import OktaJwtVerifier from '@okta/jwt-verifier';
 
+const expectedAudience = 'api://default';
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: `${process.env.OKTA_URL_ISSUER}`,
   clientId: `${process.env.OKTA_CLIENT_ID}`,
@@ -30,4 +30,4 @@ const authRequired = async (req, res, next) => {
   }
 };
 
-module.exports = authRequired;
+export default authRequired;

@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+const router = express.Router();
 
 /**
  * @api {get} / Root path, ping
@@ -19,4 +19,4 @@ router.get('/', function (req, res) {
   res.status(200).json({ api: 'up' });
 });
 
-module.exports = router;
+export default router;
