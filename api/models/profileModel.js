@@ -4,6 +4,10 @@ const findAll = async () => {
   return await db('profiles');
 };
 
+const findBy = (filter) => {
+  return db('profiles').where(filter);
+};
+
 const findById = async (id) => {
   const user = await db('profiles')
     .where({ id })
@@ -12,4 +16,9 @@ const findById = async (id) => {
   return user;
 };
 
-module.exports = { findAll, findById };
+const create = async (profile) => {
+  console.log(profile);
+  return db('profiles').insert(profile).returning('*');
+};
+
+module.exports = { findAll, findBy, findById, create };

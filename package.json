@@ -25,10 +25,17 @@
   "apidoc": {
     "title": "Labs API Starter Scaffolding"
   },
-  "nodemonConfig": { 
+  "nodemonConfig": {
     "exec": "npm run start",
-    "watch": ["api/*", "public/*"],
-    "ignore": ["**/__tests__/**", "*.test.js", "*.spec.js"]
+    "watch": [
+      "api/*",
+      "public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
   },
   "dependencies": {
     "@okta/jwt-verifier": "^1.0.0",
