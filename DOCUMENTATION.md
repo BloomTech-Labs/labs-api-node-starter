@@ -5,6 +5,8 @@
 
  - [PingAPI](#PingAPI)
    - [Root path, ping](#Root-path,-ping)
+ - [ProfileAPI](#ProfileAPI)
+   - [Request List of Profiles](#Request-List-of-Profiles)
  - [UserAPI](#UserAPI)
    - [Request List of Users](#Request-List-of-Users)
    - [Request User information](#Request-User-information)
@@ -39,6 +41,55 @@ HTTP/1.1 200 OK
 }
 ```
 
+# <a name='ProfileAPI'></a> ProfileAPI
+
+## <a name='Request-List-of-Profiles'></a> Request List of Profiles
+[Back to top](#top)
+
+```
+GET /users/
+```
+
+### Examples
+Example usage:
+
+```curl
+curl -i http://localhost:8000/profiles
+```
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| id | `UUID` | <p>Unique id of the Profile.</p> |
+| name | `String` | <p>Name of the Profile.</p> |
+| email | `String` | <p>Email of the Profile.</p> |
+| avatar | `String` | <p>Avatar url for the Profile.</p> |
+
+### Success response example
+
+#### Success response example - `Success-Response:`
+
+```json
+HTTP/1.1 200 OK
+[
+  {
+    "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
+    "name": "Frank Martinez",
+    "email": "frank@example.com",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg"
+  },
+  {
+    "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
+    "name": "Cathy Warmund",
+    "email": "cathy@example.com",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/geneseleznev/128.jpg"
+  }
+]
+```
+
 # <a name='UserAPI'></a> UserAPI
 
 ## <a name='Request-List-of-Users'></a> Request List of Users
@@ -64,6 +115,7 @@ curl -i http://localhost:8000/users
 | id | `UUID` | <p>Unique id of the User.</p> |
 | name | `String` | <p>Name of the User.</p> |
 | email | `String` | <p>Email of the User.</p> |
+| avatar | `String` | <p>Avatar url for the User.</p> |
 
 ### Success response example
 
@@ -75,12 +127,14 @@ HTTP/1.1 200 OK
   {
     "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
     "name": "Frank Martinez",
-    "email": "frank@example.com"
+    "email": "frank@example.com",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg"
   },
   {
     "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
     "name": "Cathy Warmund",
-    "email": "cathy@example.com"
+    "email": "cathy@example.com",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/geneseleznev/128.jpg"
   }
 ]
 ```
@@ -114,6 +168,7 @@ curl -i http://localhost:3000/user/013e4ab9-77e0-48de-9efe-4d96542e791f
 | id | `UUID` | <p>Unique id of the User.</p> |
 | name | `String` | <p>Name of the User.</p> |
 | email | `String` | <p>Email of the User.</p> |
+| avatar | `String` | <p>Avatar url for the User.</p> |
 
 ### Success response example
 
@@ -124,7 +179,8 @@ HTTP/1.1 200 OK
 {
   "id": "013e4ab9-77e0-48de-9efe-4d96542e791f",
   "name": "Frank Martinez",
-  "email": "frank@example.com"
+  "email": "frank@example.com",
+  "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg"
 }
 ```
 
