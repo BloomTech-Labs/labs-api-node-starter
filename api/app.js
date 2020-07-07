@@ -1,6 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
-const cors = require("cors");
+const cors = require('cors');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var helmet = require('helmet');
@@ -15,7 +15,9 @@ var profileRouter = require('./routes/profile');
 
 var app = express();
 
-app.use('/apidoc', express.static('apidoc'));
+// docs would need to be built and committed
+// app.use('/apidoc', express.static('apidoc'));
+
 app.use(helmet());
 app.use(
   cors({
