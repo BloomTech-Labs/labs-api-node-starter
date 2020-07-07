@@ -93,6 +93,7 @@ router.get('/:id', authRequired, function (req, res) {
     });
 });
 
+// curl -i -X POST -H "Content-Type: application/json" -d '{"id":"00uhjfrwdWAQvD8JV4x6","email":"frank@example.com","name":"Frank Smith","avatarUrl":"https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg"}' http://localhost:8005/Profile/create
 router.post('/create', (req, res) => {
   const profile = req.body;
   console.log('profile', profile);
