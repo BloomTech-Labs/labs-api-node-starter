@@ -94,7 +94,7 @@ router.get('/:id', authRequired, function (req, res) {
 });
 
 // curl -i -X POST -H "Content-Type: application/json" -d '{"id":"00uhjfrwdWAQvD8JV4x6","email":"frank@example.com","name":"Frank Smith","avatarUrl":"https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg"}' http://localhost:8005/Profile/create
-router.post('/create', (req, res) => {
+router.post('/', authRequired, (req, res) => {
   const profile = req.body;
   console.log('profile', profile);
   if (profile) {
@@ -125,6 +125,44 @@ router.post('/create', (req, res) => {
   } else {
     res.status(400).json({ message: 'Profile missing' });
   }
+});
+
+router.put('/:id', (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+  Profiles.findById(id)
+    .then(
+      Profiles.update(id, data)
+        .then((updated) => {
+          res.status(200).json(updated[0]);
+        })
+        .catch((err) => {
+          res.status(500).json({
+            message: `Could not update profile '${id}'`,
+            error: err.message,
+          });
+        })
+    )
+    .catch((err) => {
+      res.status(404).json({
+        message: `Could not find profile '${id}'`,
+        error: err.message,
+      });
+    });
+});
+
+router.delete('/:id', (req, res) => {
+  const id = req.params.id;
+  Profiles.remove(id)
+    .then(() => {
+      res.status(200).json({ message: `Profile '${id}' was deleted.` });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message: `Could not delete profile with ID: ${id}`,
+        error: err.message,
+      });
+    });
 });
 
 module.exports = router;

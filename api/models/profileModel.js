@@ -9,16 +9,27 @@ const findBy = (filter) => {
 };
 
 const findById = async (id) => {
-  const user = await db('profiles')
+  return db('profiles')
     .where({ id })
     .first()
-    .select('id', 'email', 'name', 'avatar');
-  return user;
+    .select('id', 'email', 'name', 'avatarUrl');
 };
 
 const create = async (profile) => {
-  console.log(profile);
   return db('profiles').insert(profile).returning('*');
 };
 
-module.exports = { findAll, findBy, findById, create };
+const update = (id, profile) => {
+  console.log(profile);
+  return db('profiles')
+    .where({ id: id })
+    .first()
+    .update(profile)
+    .returning('*');
+};
+
+const remove = async (id) => {
+  return await db('profiles').where({ id }).del();
+};
+
+module.exports = { findAll, findBy, findById, create, update, remove };
