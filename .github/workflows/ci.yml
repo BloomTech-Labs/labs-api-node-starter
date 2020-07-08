@@ -34,6 +34,8 @@ jobs:
 
       - run: npm run lint
 
+      - run: cp .env.sample .env
+
       # A GitHub action for running tests and publishing coverage
       - uses: paambaati/codeclimate-action@v2.6.0
         env:

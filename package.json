@@ -11,7 +11,7 @@
     "knex": "npx knex --knexfile config/knexfile.js",
     "docs": "rm -rf apidoc && npx apidoc -f \"api/routes/.*\\.js$\" -i ./ -o apidoc/ && npx apidoc-markdown -p apidoc -o DOCUMENTATION.md",
     "tests": "npx jest --forceExit",
-    "coverage": "npx jest --coverage --detectOpenHandles --forceExit"
+    "coverage": "CI=true npx jest --coverage --detectOpenHandles --forceExit"
   },
   "jest": {
     "testEnvironment": "node",
