@@ -47,7 +47,7 @@ app.use(function (err, req, res, next) {
       res.locals.error = err;
     }
   }
-  console.log(err);
+  console.error(err);
   if (process.env.NODE_ENV === 'production' && !res.locals.message) {
     res.locals.message = 'ApplicationError';
     res.locals.status = 500;

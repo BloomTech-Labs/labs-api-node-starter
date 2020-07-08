@@ -1,11 +1,11 @@
 const request = require('supertest');
 const express = require('express');
 const Profiles = require('../../api/models/profileModel');
-const profileRouter = require('../../routes/profile');
-
+const profileRouter = require('../../api/routes/profile');
 const server = express();
-jest.mock('../../models/profileModel');
-jest.mock('../../middleware/authRequired', () =>
+
+jest.mock('../../api/models/profileModel');
+jest.mock('../../api/middleware/authRequired', () =>
   jest.fn((req, res, next) => next())
 );
 
@@ -29,13 +29,11 @@ describe('profiles router endpoints', () => {
   describe('GET /profiles/:id', () => {
     it('should return 200 when profile found', async () => {
       Profiles.findById.mockResolvedValue({
-        id: 'd376de05-5f1b-4086-93b1-77681ca93614',
+        id: 'd376de0577681ca93614',
         name: 'Bob Smith',
         email: 'bob@example.com',
       });
-      const res = await request(server).get(
-        '/profiles/d376de05-5f1b-4086-93b1-77681ca93614'
-      );
+      const res = await request(server).get('/profiles/d376de0577681ca93614');
 
       expect(res.status).toBe(200);
       expect(res.body.name).toBe('Bob Smith');
@@ -44,9 +42,7 @@ describe('profiles router endpoints', () => {
 
     it('should return 404 when no user found', async () => {
       Profiles.findById.mockResolvedValue();
-      const res = await request(server).get(
-        '/profiles/d376de05-5f1b-4086-93b1-77681ca9361d'
-      );
+      const res = await request(server).get('/profiles/d376de0577681ca93614');
 
       expect(res.status).toBe(404);
       expect(res.body.error).toBe('ProfileNotFound');

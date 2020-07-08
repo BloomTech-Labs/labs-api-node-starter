@@ -10,7 +10,8 @@
     "format": "npx prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\"",
     "knex": "npx knex --knexfile config/knexfile.js",
     "docs": "rm -rf apidoc && npx apidoc -f \"api/routes/.*\\.js$\" -i ./ -o apidoc/ && npx apidoc-markdown -p apidoc -o DOCUMENTATION.md",
-    "tests": "npx jest --forceExit"
+    "tests": "npx jest --forceExit",
+    "coverage": "npx jest --coverage --detectOpenHandles --forceExit"
   },
   "jest": {
     "testEnvironment": "node",
@@ -19,7 +20,8 @@
       "!**/node_modules/**",
       "!**/vendor/**",
       "!**/__tests__/**",
-      "!**/coverage/**"
+      "!**/coverage/**",
+      "!**/apidoc/**"
     ]
   },
   "apidoc": {
@@ -50,7 +52,8 @@
     "http-errors": "~1.6.3",
     "knex": "^0.21.1",
     "morgan": "~1.9.1",
-    "pg": "^8.2.1"
+    "pg": "^8.2.1",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

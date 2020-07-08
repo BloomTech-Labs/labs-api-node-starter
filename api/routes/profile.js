@@ -127,7 +127,7 @@ router.post('/', authRequired, (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', authRequired, (req, res) => {
   const id = req.params.id;
   const data = req.body;
   Profiles.findById(id)
@@ -151,7 +151,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authRequired, (req, res) => {
   const id = req.params.id;
   Profiles.remove(id)
     .then(() => {

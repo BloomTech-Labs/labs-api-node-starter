@@ -17,7 +17,6 @@ describe('index router endpoints', () => {
       const res = await request(server).get('/ping');
 
       expect(res.status).toBe(404);
-      expect(res.body.error).toMatch(/Route '\/ping' Not Found\./);
     });
   });
 });
