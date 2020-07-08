@@ -13,7 +13,23 @@ All routes can be viewed in the [DOCUMENTATION.md](DOCUMENTATION.md) file
 
 ## Getting Started
 
+### Enviornment Variables
+
+`PORT=8000` - API port
+`PG_CONNECTION_STRING=postgres://docker:docker@127.0.0.1:5400/api-dev` - connection string for postgres database
+`OKTA_URL_ISSUER=https://example.okta.com/oauth2/default` - The issuer url for verifying okta access tokens.
+`OKTA_CLIENT_ID=example` - the okta client ID.
+
+### Setup postgres
+
 - Install [docker](https://docs.docker.com/get-docker/) for your platform
+  - Alternatively, for the older Windows 10 Home edition you have the following options
+    1. Install Postgress directly on your computer from [Download page](https://www.postgresql.org/download/)
+    2. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and Docker. This has many more steps involved up front but will get you a docker setup that can be used in the future
+- run: `docker-compose up` to start up the postgresql database.
+
+### Setup the application
+
 - Fork and clone the repo to install it as your own remote.
 
   - **note** please [be sure to set your remote](https://help.github.jp/enterprise/2.11/user/articles/changing-a-remote-s-url/) for this repo to point to your Labs Team Repository.
@@ -25,7 +41,7 @@ All routes can be viewed in the [DOCUMENTATION.md](DOCUMENTATION.md) file
     ```
 
 - run: `npm install` to download all dependencies.
-- run: `docker-compose up` to start up the postgresql database.
+- run: `cp .env.sample .env` and update the enviornment variables to match your local setup.
 - run: `npm run knex -- migrate:latest` to create the starting schema.
 - run: `npm run knex -- seed:run` to populate your db with some data.
 - run: `npm run tests` to confirm all is setup and tests pass.
