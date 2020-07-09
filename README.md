@@ -15,10 +15,12 @@ All routes can be viewed in the [DOCUMENTATION.md](DOCUMENTATION.md) file
 
 ### Enviornment Variables
 
-`PORT=8000` - API port
-`PG_CONNECTION_STRING=postgres://docker:docker@127.0.0.1:5400/api-dev` - connection string for postgres database
-`OKTA_URL_ISSUER=https://example.okta.com/oauth2/default` - The issuer url for verifying okta access tokens.
-`OKTA_CLIENT_ID=example` - the okta client ID.
+`PORT` - API port
+`DATABASE_URL` - connection string for postgres database
+`OKTA_URL_ISSUER` - The issuer url for verifying okta access tokens.
+`OKTA_CLIENT_ID` - the okta client ID.
+
+See .env.sample for example values
 
 ### Setup postgres
 
