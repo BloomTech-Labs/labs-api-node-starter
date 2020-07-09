@@ -1,22 +1,34 @@
-var createError = require('http-errors');
-var express = require('express');
+const createError = require('http-errors');
+const express = require('express');
 const cors = require('cors');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var helmet = require('helmet');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const helmet = require('helmet');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJSDoc = require('swagger-jsdoc');
+const jsdocConfig = require('../config/jsdoc');
 const dotenv = require('dotenv');
 const config_result = dotenv.config();
 if (config_result.error) {
   throw config_result.error;
 }
 
-var indexRouter = require('./routes/index');
-var profileRouter = require('./routes/profile');
+const swaggerSpec = swaggerJSDoc(jsdocConfig);
+const swaggerUIOptions = {
+  explorer: true,
+};
 
-var app = express();
+const indexRouter = require('./routes/index');
+const profileRouter = require('./routes/profile');
+
+const app = express();
 
 // docs would need to be built and committed
-// app.use('/apidoc', express.static('apidoc'));
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec, swaggerUIOptions)
+);
 
 app.use(helmet());
 app.use(express.json());
