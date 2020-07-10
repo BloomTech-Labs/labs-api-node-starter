@@ -2,18 +2,25 @@ var express = require('express');
 var router = express.Router();
 
 /**
- * @api {get} / Root path, ping
- * @apiName GetRoot
- * @apiGroup PingAPI
- *
- * @apiSuccessExample Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *       "api": "up"
- *     }
- *
- * @apiExample {curl} Example usage:
- *     curl -i http://localhost:3000/
+ * @swagger
+ * /:
+ *  get:
+ *    description: root path returning status
+ *  produces:
+ *    - applicaiton/json
+ *  responses:
+ *    200:
+ *      description: status is up
+ *      content:
+ *        application/xml:
+ *          schema:
+ *            type: object
+ *            required:
+ *              - api
+ *            properties:
+ *              api:
+ *                type: boolean
+ *                example: true
  */
 router.get('/', function (req, res) {
   res.status(200).json({ api: 'up' });
