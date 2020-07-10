@@ -11,6 +11,12 @@ module.exports = {
         url: 'https://en.wikipedia.org/wiki/MIT_License',
       },
     },
+    tags: [
+      {
+        name: 'status',
+        description: 'Everything about your status',
+      },
+    ],
   },
   apis: ['./api/routes/*.js'],
 };
