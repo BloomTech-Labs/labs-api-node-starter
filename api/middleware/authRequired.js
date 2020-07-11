@@ -27,6 +27,7 @@ const authRequired = async (req, res, next) => {
     oktaJwtVerifier
       .verifyAccessToken(accessToken, expectedAudience)
       .then((data) => {
+        data.cid;
         // console.log('oktaJwtVerifier', data);
         next();
       })
