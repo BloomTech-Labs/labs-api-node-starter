@@ -9,7 +9,7 @@
 
 ## API doc
 
-All routes can be viewed in the [DOCUMENTATION.md](DOCUMENTATION.md) file
+All routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
 
 ## Getting Started
 
