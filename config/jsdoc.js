@@ -16,7 +16,25 @@ module.exports = {
         name: 'status',
         description: 'Everything about your status',
       },
+      {
+        name: 'profile',
+        description: 'Operations for profile',
+      },
     ],
+    components: {
+      securitySchemes: {
+        okta: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'Okta Access token JWT',
+        },
+      },
+      responses: {
+        UnauthorizedError: {
+          description: 'Access token is missing or invalid',
+        },
+      },
+    },
   },
   apis: ['./api/routes/*.js'],
 };
