@@ -33,6 +33,26 @@ module.exports = {
         UnauthorizedError: {
           description: 'Access token is missing or invalid',
         },
+        BadRequest: {
+          description: 'Bad request. profile already exists',
+        },
+        NotFound: {
+          description: 'Not Found',
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  message: {
+                    type: 'string',
+                    description: 'A message about the result',
+                    example: 'Not Found',
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
