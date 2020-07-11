@@ -17,7 +17,7 @@ All routes can be viewed in the [DOCUMENTATION.md](DOCUMENTATION.md) file
 
 `PORT` - API port
 `DATABASE_URL` - connection string for postgres database
-`OKTA_URL_ISSUER` - The issuer url for verifying okta access tokens.
+`OKTA_URL_ISSUER` - The complete issuer URL for verifying okta access tokens. `https://example.okta.com/oauth2/default`
 `OKTA_CLIENT_ID` - the okta client ID.
 
 See .env.sample for example values
