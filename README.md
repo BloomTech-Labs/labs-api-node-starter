@@ -47,7 +47,7 @@ See .env.sample for example values
 - run: `npm run knex -- migrate:latest` to create the starting schema.
 - run: `npm run knex -- seed:run` to populate your db with some data.
 - run: `npm run tests` to confirm all is setup and tests pass.
-- run: `npm start` to start your local development server.
+- run: `npm watch:dev` to start nodemon in local dev enviornment.
 
 ## Contributing
 
