@@ -26,7 +26,7 @@ module.exports = {
         okta: {
           type: 'http',
           scheme: 'bearer',
-          bearerFormat: 'Okta Access token JWT',
+          bearerFormat: 'Okta accessToken JWT',
         },
       },
       responses: {
