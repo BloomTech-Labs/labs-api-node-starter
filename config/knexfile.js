@@ -4,7 +4,7 @@ dotenv.config({ path: '../.env' });
 module.exports = {
   development: {
     client: 'pg',
-    connection: process.env.PG_CONNECTION_STRING,
+    connection: process.env.DATABASE_URL,
     migrations: { directory: '../data/migrations' },
     seeds: { directory: '../data/seeds' },
     pool: {
@@ -15,7 +15,7 @@ module.exports = {
 
   test: {
     client: 'pg',
-    connection: process.env.PG_CONNECTION_STRING,
+    connection: process.env.DATABASE_URL,
     migrations: { directory: '../data/migrations' },
     seeds: { directory: '../data/seeds' },
   },
