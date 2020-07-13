@@ -3,13 +3,31 @@
 > **Disclaimer:** This application is currently in Alpha and is not ready for
 > production. Please use at your own risk as things will change almost daily.
 
+The following examples can be found in this project template.
+
+- CRUD routes for a single resource
+- A Knex model providing CRUD methods for DB operations
+- Some route tests with mocks on the database calls
+- eslint setup and prettier formating.
+- Jest coverage setup
+- Inline Swagger docs with a live route at `/api-docs`
+- Github workflow config setup to run linting, tests and upload coverage to code climate
+- docker-compose file for spinning up postgresql db. (Win10 Home requires WSL)
+
 ## Requirements
 
-- [Labs Engineering Standard requirements found here](https://labs.lambdaschool.com/topics/node-js/)
+All [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/) must be followed.
 
 ## API doc
 
 All routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
+
+Swagger docs are created using open api v3 notations. The docs are found inline on the route files in `api/routes` and use the yaml notation format. The root of the docs is in `config/jsdoc.js` using the json format.
+
+The following libraries have been used to serve the swagger docs live.
+
+- [express-ui](https://github.com/scottie1984/swagger-ui-express)
+- [swagger-jsdoc](https://github.com/Surnet/swagger-jsdoc)
 
 ## Getting Started
 
