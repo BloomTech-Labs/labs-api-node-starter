@@ -33,20 +33,25 @@ The following libraries have been used to serve the swagger docs live.
 
 ### Enviornment Variables
 
-`PORT` - API port
-`DATABASE_URL` - connection string for postgres database
-`OKTA_URL_ISSUER` - The complete issuer URL for verifying okta access tokens. `https://example.okta.com/oauth2/default`
-`OKTA_CLIENT_ID` - the okta client ID.
+- `PORT` - API port
+- `DATABASE_URL` - connection string for postgres database
+- `OKTA_URL_ISSUER` - The complete issuer URL for verifying okta access tokens. `https://example.okta.com/oauth2/default`
+- `OKTA_CLIENT_ID` - the okta client ID.
 
 See .env.sample for example values
 
 ### Setup postgres
 
-- Install [docker](https://docs.docker.com/get-docker/) for your platform
-  - Alternatively, for the older Windows 10 Home edition you have the following options
-    1. Install Postgress directly on your computer from [Download page](https://www.postgresql.org/download/)
-    2. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and Docker. This has many more steps involved up front but will get you a docker setup that can be used in the future
-- run: `docker-compose up` to start up the postgresql database.
+There are 2 methods to get postgresql installed locally:
+
+1. Download and install postgresql directly from the [main site](https://www.postgresql.org/download/)
+     - make note of the port, username and password you use to setup the database.
+     - Connect your client to the server manually using the values previously mentioned
+     - You will need to create a database manually using a client.
+     - Make sure to update the DATABASE_URL connection string with the values for username/password, databasename and server port (if not 5432).
+2. Install [docker](https://docs.docker.com/get-docker/) for your platform
+    - run: `docker-compose up -d` to start up the postgresql database and pgadmin.
+    - Open a browser to [pgadmin](http://localhost:5050/) and you should see the Dev server already defined.
 
 ### Setup the application
 
