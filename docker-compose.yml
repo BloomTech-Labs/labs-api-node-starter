@@ -14,4 +14,25 @@ services:
       - ./docker/pg/postgres.conf:/etc/postgresql/postgresql.conf
       - ./data/pg:/var/lib/postgresql/data
     command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    networks:
+      - postgres
     restart: always
+
+  pgadmin:
+    container_name: pgadmin_labs
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_SERVER_JSON_FILE: /tmp/.pgadmin/servers.json
+    volumes:
+        - ./data/pgadmin:/tmp/.pgadmin
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - postgres
+    restart: unless-stopped
+  
+networks:
+  postgres:
+    driver: bridge
