@@ -44,14 +44,18 @@ See .env.sample for example values
 
 There are 2 methods to get postgresql installed locally:
 
-1. Download and install postgresql directly from the [main site](https://www.postgresql.org/download/)
-     - make note of the port, username and password you use to setup the database.
-     - Connect your client to the server manually using the values previously mentioned
-     - You will need to create a database manually using a client.
-     - Make sure to update the DATABASE_URL connection string with the values for username/password, databasename and server port (if not 5432).
-2. Install [docker](https://docs.docker.com/get-docker/) for your platform
+1. Use docker. [Install](https://docs.docker.com/get-docker/) for your platform
     - run: `docker-compose up -d` to start up the postgresql database and pgadmin.
     - Open a browser to [pgadmin](http://localhost:5050/) and you should see the Dev server already defined.
+2. Download and install postgresql directly from the [main site](https://www.postgresql.org/download/)
+    - make note of the port, username and password you use to setup the database.
+    - Connect your client to the server manually using the values previously mentioned
+    - You will need to create a database manually using a client.
+    - Make sure to update the DATABASE_URL connection string with the values for username/password, databasename and server port (if not 5432).
+3. Setup a free account at [ElephantSQL](https://www.elephantsql.com/plans.html)
+    - Sign up for a free `Tiney Turtle` plan
+    - copy the URL to the DATABASE_URL .env variable
+    - make sure to add `?ssl=true` to the end of this url
 
 ### Setup the application
 
