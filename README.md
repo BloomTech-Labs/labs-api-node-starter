@@ -61,7 +61,7 @@ There are 2 methods to get postgresql installed locally:
   - Alternatively you can clone this repo then remove the git folder to initialize a new repo
 
     ```bash
-    > git clone --depth=1 --branch=master git@github.com:Lambda-School-Labs/labs-api-starter.git NEW-REPO-NAME
+    > git clone --depth=1 --branch=main git@github.com:Lambda-School-Labs/labs-api-starter.git NEW-REPO-NAME
     > rm -rf ./NEW-REPO-NAME/.git
     ```
 
