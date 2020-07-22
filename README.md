@@ -74,7 +74,7 @@ There are 2 methods to get postgresql installed locally:
 - run: `npm run knex migrate:latest` to create the starting schema.
 - run: `npm run knex seed:run` to populate your db with some data.
 - run: `npm run tests` to confirm all is setup and tests pass.
-- run: `npm watch:dev` to start nodemon in local dev enviornment.
+- run: `npm run watch:dev` to start nodemon in local dev enviornment.
 
 ## Contributing
 
