@@ -18,8 +18,8 @@ const swaggerUIOptions = {
   explorer: true,
 };
 
-const indexRouter = require('./routes/index');
-const profileRouter = require('./routes/profile');
+const indexRouter = require('./index/indexRouter');
+const profileRouter = require('./profile/profileRouter');
 
 const app = express();
 
