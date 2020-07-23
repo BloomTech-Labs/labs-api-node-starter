@@ -1,14 +1,8 @@
 const createError = require('http-errors');
 const OktaJwtVerifier = require('@okta/jwt-verifier');
-const expectedAudience = 'api://default';
+const oktaVerifierConfig = require('../../config/okta');
 
-const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: `${process.env.OKTA_URL_ISSUER}`,
-  clientId: `${process.env.OKTA_CLIENT_ID}`,
-  assertClaims: {
-    aud: expectedAudience,
-  },
-});
+const oktaJwtVerifier = new OktaJwtVerifier(oktaVerifierConfig.config);
 
 /**
  * A simple middleware that asserts valid access tokens and sends 401 responses
@@ -25,7 +19,7 @@ const authRequired = async (req, res, next) => {
 
     const accessToken = match[1];
     oktaJwtVerifier
-      .verifyAccessToken(accessToken, expectedAudience)
+      .verifyAccessToken(accessToken, oktaVerifierConfig.expectedAudience)
       .then((data) => {
         data.cid;
         // console.log('oktaJwtVerifier', data);
