@@ -56,5 +56,5 @@ module.exports = {
       },
     },
   },
-  apis: ['./api/routes/*.js'],
+  apis: ['./api/**/*Router.js'],
 };

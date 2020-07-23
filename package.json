@@ -23,9 +23,6 @@
       "!**/apidoc/**"
     ]
   },
-  "apidoc": {
-    "title": "Labs API Starter Scaffolding"
-  },
   "nodemonConfig": {
     "exec": "npm run start",
     "watch": [
