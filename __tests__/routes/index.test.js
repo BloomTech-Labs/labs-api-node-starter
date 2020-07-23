@@ -14,6 +14,7 @@ describe('index router endpoints', () => {
     });
 
     it('should return 404 for /ping', async () => {
+      jest.spyOn(global.console, 'error').mockImplementation(() => {});
       const res = await request(server).get('/ping');
 
       expect(res.status).toBe(404);

@@ -163,29 +163,33 @@ router.post('/', authRequired, (req, res) => {
   const profile = req.body;
   if (profile) {
     const id = profile.id || 0;
-    Profiles.findBy({ id })
-      .first()
-      .then((pf) => {
-        if (pf == undefined) {
-          //profile not found so lets insert it
-          Profiles.create(profile)
-            .then((profile) =>
-              res
-                .status(200)
-                .json({ message: 'profile created', profile: profile[0] })
-            )
-            .catch((err) => {
-              console.error(err);
-              res.status(500).json({ message: err.message });
-            });
-        } else {
-          res.status(400).json({ message: 'profile already exists' });
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.status(500).json({ message: err.message });
-      });
+    try {
+      Profiles.findById(id)
+        .then((pf) => {
+          if (pf == undefined) {
+            //profile not found so lets insert it
+            Profiles.create(profile)
+              .then((profile) =>
+                res
+                  .status(200)
+                  .json({ message: 'profile created', profile: profile[0] })
+              )
+              .catch((err) => {
+                console.error(err);
+                res.status(500).json({ message: err.message });
+              });
+          } else {
+            res.status(400).json({ message: 'profile already exists' });
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          res.status(500).json({ message: err.message });
+        });
+    } catch (e) {
+      console.error(e);
+      res.status(500).json({ message: e.message });
+    }
   } else {
     res.status(400).json({ message: 'Profile missing' });
   }
