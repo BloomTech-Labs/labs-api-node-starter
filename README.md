@@ -1,6 +1,9 @@
 # Basic node API
 
-> **Disclaimer:** This application is currently in Alpha and is not ready for
+[![Maintainability](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/test_coverage)
+
+> **Disclaimer:** This application is currently in Beta mode and is not ready for
 > production. Please use at your own risk as things will change almost daily.
 
 The following examples can be found in this project template.
