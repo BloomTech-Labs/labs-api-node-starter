@@ -6,4 +6,8 @@ const getPrediction = (label, x1, x2) => {
   return dsClient.post('/predict', { x1, x2, x3: label });
 };
 
-module.exports = { getPrediction };
+const getViz = (state) => {
+  return dsClient.get(`/viz/${state}`);
+};
+
+module.exports = { getPrediction, getViz };

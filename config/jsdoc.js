@@ -25,6 +25,10 @@ module.exports = {
         description: 'Operations for data science service',
       },
     ],
+    externalDocs: {
+      description: 'Data Science scaffold service docs',
+      url: 'https://ds-bw-test.herokuapp.com/',
+    },
     components: {
       securitySchemes: {
         okta: {
