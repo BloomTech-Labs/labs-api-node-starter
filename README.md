@@ -8,6 +8,7 @@ The following examples can be found in this project template.
 - CRUD routes for a single resource
 - A Knex model providing CRUD methods for DB operations
 - Some route tests with mocks on the database calls
+- Okta authentication verification middleware
 - eslint setup and prettier formating.
 - Jest coverage setup
 - Inline Swagger docs with a live route at `/api-docs`
@@ -22,9 +23,13 @@ All [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/) 
 
 All routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
 
-Swagger docs are created using open api v3 notations. The docs are found inline on the route files in `api/routes` and use the yaml notation format. The root of the docs is in `config/jsdoc.js` using the json format.
+- https://localhost:8005/api-docs
 
-The following libraries have been used to serve the swagger docs live.
+Swagger docs are created using open api v3 notations. The docs are found inline
+on the router files in `api/**/*Router.js` and use the yaml notation format.
+The root of the docs is in `config/jsdoc.js` using the json format.
+
+The following libraries have been used to build and serve the swagger docs live.
 
 - [express-ui](https://github.com/scottie1984/swagger-ui-express)
 - [swagger-jsdoc](https://github.com/Surnet/swagger-jsdoc)
