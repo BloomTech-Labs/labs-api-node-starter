@@ -20,6 +20,10 @@ module.exports = {
         name: 'profile',
         description: 'Operations for profile',
       },
+      {
+        name: 'data',
+        description: 'Operations for data science service',
+      },
     ],
     components: {
       securitySchemes: {
