@@ -17,7 +17,7 @@ const router = express.Router();
  *      properties:
  *        id:
  *          type: string
- *          description: This is a foreign key: the okta user ID
+ *          description: This is a foreign key (the okta user ID)
  *        email:
  *          type: string
  *        name:
