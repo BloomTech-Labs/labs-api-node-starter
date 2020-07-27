@@ -5,23 +5,15 @@ const authRequired = require('../middleware/authRequired');
 
 /**
  * @swagger
- * /data/predict/{label}/{x1}/{x2}:
+ * /data/predict/{x1}/{x2}/{x3}:
  *  get:
- *    description: Get prediction for x1 and x2 numbers
+ *    description: Get prediction for 3 inputs
  *    summary: Returns a prediction result
  *    security:
  *      - okta: []
  *    tags:
  *      - data
  *    parameters:
- *      - label:
- *        name: label
- *        in: path
- *        description: label for prediction
- *        required: true
- *        example: banjo
- *        schema:
- *          type: string
  *      - x1:
  *        name: x1
  *        in: path
@@ -38,6 +30,14 @@ const authRequired = require('../middleware/authRequired');
  *        example: -42
  *        schema:
  *          type: number
+ *      - x3:
+ *        name: x3
+ *        in: path
+ *        description: label for prediction
+ *        required: true
+ *        example: banjo
+ *        schema:
+ *          type: string
  *    responses:
  *      200:
  *        description: A predition result object
@@ -60,13 +60,13 @@ const authRequired = require('../middleware/authRequired');
  *      500:
  *        description: 'Error making prediction'
  */
-router.get('/predict/:label/:x1/:x2', authRequired, function (req, res) {
-  const label = String(req.params.label);
+router.get('/predict/:x1/:x2/:3', authRequired, function (req, res) {
   const x1 = String(req.params.x1);
   const x2 = String(req.params.x2);
+  const x3 = String(req.params.x3);
 
   dsModel
-    .getPrediction(label, x1, x2)
+    .getPrediction(x1, x2, x3)
     .then((response) => {
       res.status(200).json(response.data);
     })
