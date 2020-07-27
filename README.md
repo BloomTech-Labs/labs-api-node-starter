@@ -51,7 +51,7 @@ See .env.sample for example values
 
 ### Setup postgres
 
-There are 2 methods to get postgresql installed locally:
+There are 3 options to get postgresql installed locally [Choose one]:
 
 1. Use docker. [Install](https://docs.docker.com/get-docker/) for your platform
     - run: `docker-compose up -d` to start up the postgresql database and pgadmin.
