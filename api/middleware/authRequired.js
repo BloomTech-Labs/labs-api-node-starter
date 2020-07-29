@@ -1,9 +1,29 @@
 const createError = require('http-errors');
 const OktaJwtVerifier = require('@okta/jwt-verifier');
 const oktaVerifierConfig = require('../../config/okta');
-
+const Profiles = require('../profile/profileModel');
 const oktaJwtVerifier = new OktaJwtVerifier(oktaVerifierConfig.config);
 
+const lookupProfile = async (id) => {
+  return await Profiles.findById(id).then((profile) => {
+    return profile;
+  });
+};
+const findCreateProfile = async (jwt) => {
+  const foundProfile = await lookupProfile(jwt.claims.sub);
+  if (foundProfile) {
+    return foundProfile;
+  } else {
+    const newProfileObj = {
+      id: jwt.claims.sub,
+      email: jwt.claims.email,
+      name: jwt.claims.name,
+    };
+    return await Profiles.create(newProfileObj).then((newProfile) => {
+      return newProfile ? newProfile[0] : newProfile;
+    });
+  }
+};
 /**
  * A simple middleware that asserts valid access tokens and sends 401 responses
  * if the token is not present or fails validation.  If the token is valid its
@@ -14,23 +34,24 @@ const authRequired = async (req, res, next) => {
     const authHeader = req.headers.authorization || '';
     const match = authHeader.match(/Bearer (.+)/);
 
-    if (!match)
-      throw new Error('You must be authenticated to access this resource');
+    if (!match) throw new Error('Missing idToken');
 
-    const accessToken = match[1];
+    const idToken = match[1];
     oktaJwtVerifier
-      .verifyAccessToken(accessToken, oktaVerifierConfig.expectedAudience)
-      .then((data) => {
-        data.cid;
-        // console.log('oktaJwtVerifier', data);
+      .verifyAccessToken(idToken, oktaVerifierConfig.expectedAudience)
+      .then(async (data) => {
+        const profile = await findCreateProfile(data);
+        if (profile) {
+          res.locals.profile = profile;
+        }
         next();
       })
       .catch((err) => {
         console.error('oktaJwtVerifier', err);
-        next(createError(500, 'Unable to authorize'));
+        next(createError(401, 'Unable to authorize from idToken'));
       });
   } catch (err) {
-    next(createError(401, err.message));
+    next(createError(500, err.message));
   }
 };
 

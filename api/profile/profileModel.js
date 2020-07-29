@@ -9,10 +9,7 @@ const findBy = (filter) => {
 };
 
 const findById = async (id) => {
-  return db('profiles')
-    .where({ id })
-    .first()
-    .select('id', 'email', 'name', 'avatarUrl');
+  return db('profiles').where({ id }).first().select('*');
 };
 
 const create = async (profile) => {

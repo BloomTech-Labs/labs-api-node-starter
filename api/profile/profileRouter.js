@@ -159,33 +159,23 @@ router.get('/:id', authRequired, function (req, res) {
  *                profile:
  *                  $ref: '#/components/schemas/Profile'
  */
-router.post('/', authRequired, (req, res) => {
+router.post('/', authRequired, async (req, res) => {
   const profile = req.body;
   if (profile) {
     const id = profile.id || 0;
     try {
-      Profiles.findById(id)
-        .then((pf) => {
-          if (pf == undefined) {
-            //profile not found so lets insert it
-            Profiles.create(profile)
-              .then((profile) =>
-                res
-                  .status(200)
-                  .json({ message: 'profile created', profile: profile[0] })
-              )
-              .catch((err) => {
-                console.error(err);
-                res.status(500).json({ message: err.message });
-              });
-          } else {
-            res.status(400).json({ message: 'profile already exists' });
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-          res.status(500).json({ message: err.message });
-        });
+      await Profiles.findById(id).then(async (pf) => {
+        if (pf == undefined) {
+          //profile not found so lets insert it
+          await Profiles.create(profile).then((profile) =>
+            res
+              .status(200)
+              .json({ message: 'profile created', profile: profile[0] })
+          );
+        } else {
+          res.status(400).json({ message: 'profile already exists' });
+        }
+      });
     } catch (e) {
       console.error(e);
       res.status(500).json({ message: e.message });
