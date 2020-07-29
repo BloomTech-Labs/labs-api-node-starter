@@ -9,16 +9,19 @@ const lookupProfile = async (id) => {
     return profile;
   });
 };
+const makeProfileObj = (claims) => {
+  return {
+    id: claims.sub,
+    email: claims.email,
+    name: claims.name,
+  };
+};
 const findCreateProfile = async (jwt) => {
   const foundProfile = await lookupProfile(jwt.claims.sub);
   if (foundProfile) {
     return foundProfile;
   } else {
-    const newProfileObj = {
-      id: jwt.claims.sub,
-      email: jwt.claims.email,
-      name: jwt.claims.name,
-    };
+    const newProfileObj = makeProfileObj(jwt.claims);
     return await Profiles.create(newProfileObj).then((newProfile) => {
       return newProfile ? newProfile[0] : newProfile;
     });
@@ -43,15 +46,13 @@ const authRequired = async (req, res, next) => {
         const profile = await findCreateProfile(data);
         if (profile) {
           res.locals.profile = profile;
+        } else {
+          throw new Error('Unable to process idToken');
         }
         next();
-      })
-      .catch((err) => {
-        console.error('oktaJwtVerifier', err);
-        next(createError(401, 'Unable to authorize from idToken'));
       });
   } catch (err) {
-    next(createError(500, err.message));
+    next(createError(401, err.message));
   }
 };
 
