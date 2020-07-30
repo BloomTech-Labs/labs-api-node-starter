@@ -70,7 +70,7 @@ There are 3 options to get postgresql installed locally [Choose one]:
 
 ### Setup the application
 
-- Fork and clone the repo to install it as your own remote.
+- For Labs projects, clone the repo. Otherwise you can create a new repo using this as a template.
 
   - **note** please [be sure to set your remote](https://help.github.jp/enterprise/2.11/user/articles/changing-a-remote-s-url/) for this repo to point to your Labs Team Repository.
   - Alternatively you can clone this repo then remove the git folder to initialize a new repo
