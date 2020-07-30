@@ -42,7 +42,9 @@ The following libraries have been used to build and serve the swagger docs live.
 
 ### Enviornment Variables
 
-- `PORT` - API port
+- `PORT` - API port (optional, but helpful with FE running as well)
+- `DS_API_URL` - URL to a data science api. (eg. https://ds-bw-test.herokuapp.com/)
+- `DS_API_TOKEN` - authorization header token for data science api (eg. SUPERSECRET)
 - `DATABASE_URL` - connection string for postgres database
 - `OKTA_URL_ISSUER` - The complete issuer URL for verifying okta access tokens. `https://example.okta.com/oauth2/default`
 - `OKTA_CLIENT_ID` - the okta client ID.
