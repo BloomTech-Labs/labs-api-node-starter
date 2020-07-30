@@ -34,7 +34,7 @@ module.exports = {
         okta: {
           type: 'http',
           scheme: 'bearer',
-          bearerFormat: 'Okta accessToken JWT',
+          bearerFormat: 'Okta idToken JWT',
         },
       },
       responses: {
