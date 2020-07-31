@@ -2,7 +2,7 @@
   "name": "labs-api-starter",
   "version": "1.0.0",
   "private": false,
-  "license" : "MIT",
+  "license": "MIT",
   "repository": "github:Lambda-School-Labs/labs-api-starter",
   "scripts": {
     "start": "node server.js",
