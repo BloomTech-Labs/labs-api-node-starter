@@ -24,7 +24,7 @@ All [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/) 
 
 ## API doc
 
-All starting routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
+All routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
 of your deploy (or locally).
 
 - https://localhost:8005/api-docs
@@ -88,6 +88,9 @@ There are 3 options to get postgresql installed locally [Choose one]:
 - run: `npm run knex seed:run` to populate your db with some data.
 - run: `npm run tests` to confirm all is setup and tests pass.
 - run: `npm run watch:dev` to start nodemon in local dev enviornment.
+
+> Make sure to update the details of the app name, description and version in
+> the `package.json` and `config/jsdoc.js` files.
 
 ## Contributing
 
