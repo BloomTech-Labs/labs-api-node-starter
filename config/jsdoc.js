@@ -3,7 +3,7 @@ module.exports = {
     openapi: '3.0.1',
     info: {
       title: 'Lambda Labs Starter API',
-      version: '0.0.1',
+      version: '1.0.0',
       description:
         'A basic API server to act as a starting point for Labs projects',
       license: {

@@ -24,7 +24,7 @@ All [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/) 
 
 ## API doc
 
-All routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
+All starting routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
 of your deploy (or locally).
 
 - https://localhost:8005/api-docs
