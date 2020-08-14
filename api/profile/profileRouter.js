@@ -181,7 +181,7 @@ router.post('/', authRequired, async (req, res) => {
       res.status(500).json({ message: e.message });
     }
   } else {
-    res.status(400).json({ message: 'Profile missing' });
+    res.status(404).json({ message: 'Profile missing' });
   }
 });
 /**
