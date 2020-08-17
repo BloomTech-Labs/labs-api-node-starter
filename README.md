@@ -24,26 +24,19 @@ All [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/) 
 
 ## API doc
 
-All routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
+The documentation can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
 of your deploy (or locally).
 
-- https://localhost:8005/api-docs
+- [https://localhost:8000/api-docs](https://localhost:8000/api-docs)
 
-Swagger docs are created using open api v3 notations. The docs are found inline
-on the router files in `api/**/*Router.js` and use the yaml notation format.
-The root of the docs is in `config/jsdoc.js` using the json format.
-
-The following libraries have been used to build and serve the swagger docs live.
-
-- [express-ui](https://github.com/scottie1984/swagger-ui-express)
-- [swagger-jsdoc](https://github.com/Surnet/swagger-jsdoc)
+Read more about the setup in the jsdoc readme [config/jsdoc.md](https://github.com/Lambda-School-Labs/labs-api-starter/blob/main/config/jsdoc.md)
 
 ## Getting Started
 
 ### Enviornment Variables
 
 - `PORT` - API port (optional, but helpful with FE running as well)
-- `DS_API_URL` - URL to a data science api. (eg. https://ds-bw-test.herokuapp.com/)
+- `DS_API_URL` - URL to a data science api. (eg. <https://ds-bw-test.herokuapp.com/>)
 - `DS_API_TOKEN` - authorization header token for data science api (eg. SUPERSECRET)
 - `DATABASE_URL` - connection string for postgres database
 - `OKTA_URL_ISSUER` - The complete issuer URL for verifying okta access tokens. `https://example.okta.com/oauth2/default`
@@ -72,16 +65,7 @@ There are 3 options to get postgresql installed locally [Choose one]:
 
 ### Setup the application
 
-- For Labs projects, clone the repo. Otherwise you can create a new repo using this as a template.
-
-  - **note** please [be sure to set your remote](https://help.github.jp/enterprise/2.11/user/articles/changing-a-remote-s-url/) for this repo to point to your Labs Team Repository.
-  - Alternatively you can clone this repo then remove the git folder to initialize a new repo
-
-    ```bash
-    > git clone --depth=1 --branch=main git@github.com:Lambda-School-Labs/labs-api-starter.git NEW-REPO-NAME
-    > rm -rf ./NEW-REPO-NAME/.git
-    ```
-
+- create your project repo by forking or using this as a template.
 - run: `npm install` to download all dependencies.
 - run: `cp .env.sample .env` and update the enviornment variables to match your local setup.
 - run: `npm run knex migrate:latest` to create the starting schema.
@@ -94,14 +78,5 @@ There are 3 options to get postgresql installed locally [Choose one]:
 
 ## Contributing
 
-### ESLint and prettier
-
-[ESLint](https://eslint.org/) and [prettier](https://prettier.io/) are already
-configured with Lambda Labs standards and ready to go. These must be ran from
-the CLI prior to commiting code in the following ways:
-
-- `npm run lint` to view all purposed fixes.
-- `npm run lint:fix` to apply fixes to eslint issues.
-- `npm run format` to apply the standards defined by eslint/prettier config.
-
-Alternatively you can install plugins for your editor of choice.
+See the [contributing doc](https://github.com/Lambda-School-Labs/labs-api-starter/blob/main/CONTRIBUTING.md)
+for more info.
