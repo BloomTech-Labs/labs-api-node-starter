@@ -1,10 +1,10 @@
-# Basic node API
+# Basic Node API
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/test_coverage)
 
-> **Disclaimer:** This application is currently in Beta mode and is not ready for
-> production. Please use at your own risk as things will change almost daily.
+- Welcome to your `Basic Node API Repository`. Use this to start your own Greenfield Project using nodejs, express and common industry standards.
+- This repository assumes a handful of industry practices and standards. We strive to keep you on the bleeding edge of the industry and as a result, we have made some opinions for you so that you don't have to; you're welcome.
 
 The following examples can be found in this project template.
 
@@ -20,18 +20,18 @@ The following examples can be found in this project template.
 
 ## Requirements
 
-All [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/) must be followed.
+Labs teams must follow all [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/).
 
 ## API doc
 
 All routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
 of your deploy (or locally).
 
-- https://localhost:8005/api-docs
+- Eg., https://localhost:8005/api-docs
 
-Swagger docs are created using open api v3 notations. The docs are found inline
-on the router files in `api/**/*Router.js` and use the yaml notation format.
-The root of the docs is in `config/jsdoc.js` using the json format.
+Swagger docs are created using [open api v3 notations](https://swagger.io/specification/). 
+The docs are found inline on the router files in `api/**/*Router.js` and use the yaml 
+notation format. The root definition of the docs is in `config/jsdoc.js` using json format.
 
 The following libraries have been used to build and serve the swagger docs live.
 
