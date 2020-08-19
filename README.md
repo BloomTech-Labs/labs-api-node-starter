@@ -24,10 +24,10 @@ Labs teams must follow all [Labs Engineering Standards](https://labs.lambdaschoo
 
 ## API doc
 
-The documentation can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
-of your deploy (or locally).
+The documentation can be viewed in the `/api-docs` route of your deploy (or
+locally). [See example](https://api.labsscaffolding.dev/api-docs/)
 
-- [https://localhost:8000/api-docs](https://localhost:8000/api-docs)
+- <https://localhost:8000/api-docs>
 
 Read more about the setup in the jsdoc readme [config/jsdoc.md](https://github.com/Lambda-School-Labs/labs-api-starter/blob/main/config/jsdoc.md)
 
