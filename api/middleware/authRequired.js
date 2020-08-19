@@ -4,11 +4,6 @@ const oktaVerifierConfig = require('../../config/okta');
 const Profiles = require('../profile/profileModel');
 const oktaJwtVerifier = new OktaJwtVerifier(oktaVerifierConfig.config);
 
-const lookupProfile = async (id) => {
-  return await Profiles.findById(id).then((profile) => {
-    return profile;
-  });
-};
 const makeProfileObj = (claims) => {
   return {
     id: claims.sub,
@@ -16,21 +11,10 @@ const makeProfileObj = (claims) => {
     name: claims.name,
   };
 };
-const findCreateProfile = async (jwt) => {
-  const foundProfile = await lookupProfile(jwt.claims.sub);
-  if (foundProfile) {
-    return foundProfile;
-  } else {
-    const newProfileObj = makeProfileObj(jwt.claims);
-    return await Profiles.create(newProfileObj).then((newProfile) => {
-      return newProfile ? newProfile[0] : newProfile;
-    });
-  }
-};
 /**
- * A simple middleware that asserts valid access tokens and sends 401 responses
- * if the token is not present or fails validation.  If the token is valid its
- * contents are attached to req.jwt
+ * A simple middleware that asserts valid Okta idToken and sends 401 responses
+ * if the token is not present or fails validation. If the token is valid its
+ * contents are attached to req.profile
  */
 const authRequired = async (req, res, next) => {
   try {
@@ -43,9 +27,10 @@ const authRequired = async (req, res, next) => {
     oktaJwtVerifier
       .verifyAccessToken(idToken, oktaVerifierConfig.expectedAudience)
       .then(async (data) => {
-        const profile = await findCreateProfile(data);
+        const jwtUserObj = makeProfileObj(data.claims);
+        const profile = await Profiles.findOrCreateProfile(jwtUserObj);
         if (profile) {
-          res.locals.profile = profile;
+          req.profile = profile;
         } else {
           throw new Error('Unable to process idToken');
         }
