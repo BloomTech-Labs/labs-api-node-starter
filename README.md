@@ -16,7 +16,7 @@ The following examples can be found in this project template.
 - Jest coverage setup
 - Inline Swagger docs with a live route at `/api-docs`
 - Github workflow config setup to run linting, tests and upload coverage to code climate
-- docker-compose file for spinning up postgresql db. (Win10 Home requires WSL)
+- docker-compose file for spinning up postgresql db. (Win10 Home requires WSL2 upgrade)
 
 ## Requirements
 
