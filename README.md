@@ -1,35 +1,15 @@
 # Basic Node API
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/test_coverage)
+Welcome to your `Basic Node API Repository`. Use this to start your own Greenfield Project using nodejs, express and common industry standards.
 
-- Welcome to your `Basic Node API Repository`. Use this to start your own Greenfield Project using nodejs, express and common industry standards.
-- This repository assumes a handful of industry practices and standards. We strive to keep you on the bleeding edge of the industry and as a result, we have made some opinions for you so that you don't have to; you're welcome.
+This repository assumes a handful of industry practices and standards. We strive to keep you on the bleeding edge of the industry and as a result, we have made some opinions for you so that you don't have to; you're welcome.
 
-The following examples can be found in this project template.
-
-- CRUD routes for a single resource
-- A Knex model providing CRUD methods for DB operations
-- Some route tests with mocks on the database calls
-- Okta authentication verification middleware
-- eslint setup and prettier formating.
-- Jest coverage setup
-- Inline Swagger docs with a live route at `/api-docs`
-- Github workflow config setup to run linting, tests and upload coverage to code climate
-- docker-compose file for spinning up postgresql db. (Win10 Home requires WSL2 upgrade)
+Read more at <https://docs.labs.lambdaschool.com/labs-api-strarter/>
 
 ## Requirements
 
 Labs teams must follow all [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/).
 
-## API doc
-
-The documentation can be viewed in the `/api-docs` route of your deploy (or
-locally). [See example](https://api.labsscaffolding.dev/api-docs/)
-
-- <https://localhost:8000/api-docs>
-
-Read more about the setup in the jsdoc readme [config/jsdoc.md](https://github.com/Lambda-School-Labs/labs-api-starter/blob/main/config/jsdoc.md)
 
 ## Getting Started
 
