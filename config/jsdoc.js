@@ -27,7 +27,7 @@ module.exports = {
     ],
     externalDocs: {
       description: 'Data Science scaffold service docs',
-      url: 'https://ds-bw-test.herokuapp.com/',
+      url: 'https://ds.labsscaffolding.dev/',
     },
     components: {
       securitySchemes: {
