@@ -6,6 +6,8 @@ This repository assumes a handful of industry practices and standards. We strive
 
 Read more at <https://docs.labs.lambdaschool.com/labs-api-strarter/>
 
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=labs-api-starter&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=labs-api-starter)
+
 ## Requirements
 
 Labs teams must follow all [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/).
