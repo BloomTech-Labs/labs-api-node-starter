@@ -1,4 +1,4 @@
-# Basic Node API
+# Basic Node API Scaffold
 
 Welcome to your `Basic Node API Repository`. Use this to start your own Greenfield Project using nodejs, express and common industry standards.
 
