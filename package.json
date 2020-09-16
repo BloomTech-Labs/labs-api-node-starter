@@ -16,13 +16,15 @@
   },
   "jest": {
     "testEnvironment": "node",
+    "testResultsProcessor": "jest-sonar-reporter",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/",
+      "/vendor/",
+      "/coverage/"
+    ],
     "collectCoverageFrom": [
-      "**/*.js",
-      "!**/node_modules/**",
-      "!**/vendor/**",
-      "!**/__tests__/**",
-      "!**/coverage/**",
-      "!**/apidoc/**"
+      "**/*.js"
     ]
   },
   "nodemonConfig": {
@@ -66,6 +68,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^25.2.4",
+    "jest-sonar-reporter": "^2.0.0",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "supertest": "^4.0.2"
