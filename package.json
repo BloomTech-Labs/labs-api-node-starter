@@ -11,8 +11,19 @@
     "lint:fix": "npx eslint --fix .",
     "format": "npx prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\"",
     "knex": "npx knex --knexfile config/knexfile.js",
-    "tests": "npx jest --forceExit",
+    "tests": "npx jest",
     "coverage": "CI=true npx jest --coverage --detectOpenHandles --forceExit"
+  },
+  "lint-staged": {
+    "api/**/*.js": [
+      "eslint --fix",
+      "prettier-eslint --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "jest": {
     "testEnvironment": "node",
@@ -67,8 +78,10 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.3.0",
     "jest": "^25.2.4",
     "jest-sonar-reporter": "^2.0.0",
+    "lint-staged": "^10.4.2",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "supertest": "^4.0.2"
