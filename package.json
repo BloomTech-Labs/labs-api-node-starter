@@ -64,8 +64,8 @@
     "knex": "^0.21.1",
     "morgan": "~1.9.1",
     "pg": "^8.2.1",
-    "swagger-jsdoc": "^4.0.0",
-    "swagger-ui-express": "^4.1.4"
+    "swagger-jsdoc": "^6.0.1",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
