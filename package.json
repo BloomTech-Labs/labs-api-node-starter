@@ -30,7 +30,6 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "testResultsProcessor": "jest-sonar-reporter",
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/__tests__/",
