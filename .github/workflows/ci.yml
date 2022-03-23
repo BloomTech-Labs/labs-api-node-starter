@@ -38,6 +38,7 @@ jobs:
         with:
           node-version: "12"
       # Run the NPM install command before proceeding
+      - run: cp .env.sample .env
       - run: npm install
       # A GitHub action for running tests and publishing coverage
       - uses: paambaati/codeclimate-action@v3.0.0
