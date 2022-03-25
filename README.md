@@ -45,7 +45,7 @@ There are 3 options to get postgresql installed locally [Choose one]:
     - You will need to create a database manually using a client.
     - Make sure to update the DATABASE_URL connection string with the values for username/password, databasename and server port (if not 5432).
 3. Setup a free account at [ElephantSQL](https://www.elephantsql.com/plans.html)
-    - Sign up for a free `Tiney Turtle` plan
+    - Sign up for a free `Tiny Turtle` plan
     - copy the URL to the DATABASE_URL .env variable
     - make sure to add `?ssl=true` to the end of this url
 
