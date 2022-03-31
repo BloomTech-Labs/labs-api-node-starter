@@ -69,6 +69,7 @@
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^6.1.1",
     "cross-env": "^7.0.3",
     "debug": "~4.3.3",
     "eslint": "^8.10.0",
@@ -78,7 +79,6 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
-    "faker": "^6.6.6",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.4",
