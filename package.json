@@ -62,7 +62,7 @@
     "helmet": "^5.0.2",
     "http-errors": "~2.0.0",
     "jwks-rsa": "^2.0.5",
-    "knex": "^1.0.3",
+    "knex": "^2.4.0",
     "morgan": "~1.10.0",
     "pg": "^8.7.3",
     "swagger-jsdoc": "^6.1.0",
